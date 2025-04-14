@@ -1,0 +1,6 @@
+FROM ghcr.io/foundry-rs/foundry:latest
+
+EXPOSE 8545
+EXPOSE 8546
+
+ENTRYPOINT ["anvil", "--host", "0.0.0.0"]
