@@ -29,8 +29,8 @@ class SquaringOperator:
             staker_opt_out_window_blocks=0,
             metadata_url="",
         )
-        self.clients.el_writer.register_as_operator(operator)
-        self.clients.avs_registry_writer.register_operator_in_quorum_with_avs_registry_coordinator(
+        self.el_writer.register_as_operator(operator, True)
+        self.avs_registry_writer.register_operator_in_quorum_with_avs_registry_coordinator(
             operator_ecdsa_private_key=self.operator_ecdsa_private_key,
             operator_to_avs_registration_sig_salt=randbytes(32),
             operator_to_avs_registration_sig_expiry=int(time.time()) + 3600,
