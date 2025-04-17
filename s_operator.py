@@ -1,8 +1,6 @@
 import os
-import time
 import json
 import logging
-from random import randbytes
 import yaml
 from eth_account import Account
 from eigensdk.chainio.clients.builder import BuildAllConfig
@@ -26,17 +24,17 @@ class SquaringOperator:
             address=self.config["operator_address"],
             earnings_receiver_address=self.config["operator_address"],
             delegation_approver_address="0x0000000000000000000000000000000000000000",
+            allocation_delay=1,
             staker_opt_out_window_blocks=0,
             metadata_url="",
         )
         self.el_writer.register_as_operator(operator, True)
-        self.avs_registry_writer.register_operator_in_quorum_with_avs_registry_coordinator(
+        self.avs_registry_writer.register_operator(
             operator_ecdsa_private_key=self.operator_ecdsa_private_key,
-            operator_to_avs_registration_sig_salt=randbytes(32),
-            operator_to_avs_registration_sig_expiry=int(time.time()) + 3600,
             bls_key_pair=self.bls_key_pair,
             quorum_numbers=[0],
             socket="Not Needed",
+            wait_for_receipt=True,
         )
 
     def __load_bls_key(self):
