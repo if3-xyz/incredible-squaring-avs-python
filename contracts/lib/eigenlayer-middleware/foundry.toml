@@ -17,7 +17,6 @@
     # Defines paths for Solidity imports.
     remappings = [
         "forge-std/=lib/forge-std/src/",
-        "ds-test/=lib/ds-test/src/",
         "@openzeppelin/=lib/openzeppelin-contracts/",
         "@openzeppelin-upgrades/=lib/openzeppelin-contracts-upgradeable/",
         "eigenlayer-contracts/=lib/eigenlayer-contracts/",

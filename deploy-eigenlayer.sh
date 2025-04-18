@@ -12,7 +12,7 @@ echo "Installing dependencies..."
 forge install
 
 echo "Deploying contracts..."
-forge script script/DeployEigenlayerCore.s.sol \
+forge script script/DeployEigenLayerCore.s.sol \
     --rpc-url $RPC_URL \
     --private-key $PRIVATE_KEY \
     --broadcast \
