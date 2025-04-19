@@ -116,6 +116,8 @@ class SquaringOperator:
 
         # Build AVS registry writer client using addresses from deployment files
         self.avs_registry_writer = config.build_avs_registry_writer_clients(
+            sender_address=self.config["operator_address"],
+            private_key=self.operator_ecdsa_private_key,
             registry_coordinator=avs_addresses["registryCoordinator"],
             operator_state_retriever=avs_addresses["operatorStateRetriever"],
             service_manager=avs_addresses["incredibleSquaringServiceManager"],
